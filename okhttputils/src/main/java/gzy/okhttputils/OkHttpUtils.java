@@ -23,14 +23,14 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * Created by GZY on 18/1/26.
+ * Created by GZY.com on 18/1/26.
  */
 
 public class OkHttpUtils {
     private static OkHttpUtils mInstance;
     private OkHttpClient mHttpClient;
     private Gson mGson;
-
+    private final static String Autor = "Gzy";
     private static final String TAG = "OkHttpUtils";
 
     static {
