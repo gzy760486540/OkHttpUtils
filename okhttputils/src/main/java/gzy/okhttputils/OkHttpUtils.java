@@ -1,7 +1,6 @@
 package gzy.okhttputils;
 
 import android.os.Environment;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -123,21 +122,11 @@ public class OkHttpUtils {
     }
 
     private void callbackSuccess(final BaseCallback<Object> callback, final Response response, final Object obj) {
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                callback.onSuccess(response, obj);
-            }
-        });
+        callback.onSuccess(response, obj);
     }
 
     private void callbackError(final BaseCallback<Object> callback, final Response response, final Exception e) {
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                callback.onError(response, response.code(), e);
-            }
-        });
+        callback.onError(response, response.code(), e);
     }
 
     private void doRequest(final Request request, final BaseCallback<Object> baseCallback, final HttpMethodType methodType) {
